@@ -1,6 +1,14 @@
-import social_distancing_config as config
-from social_distancing_config import WEIGHT_PATH
-from social_distancing_config import CONFIG_PATH
+# import social_distancing_config as config
+# from social_distancing_config import WEIGHT_PATH
+# from social_distancing_config import CONFIG_PATH
+# import social_distancing_config as config
+from myApp import WEIGHT_PATH
+from myApp import CONFIG_PATH
+from myApp import USE_GPU
+from myApp import MIN_DISTANCE
+from myApp import NMS_THRESH
+from myApp import MIN_CONF
+
 from detection import detect_people
 from scipy.spatial import distance as dist
 import numpy as np
@@ -14,7 +22,13 @@ import datetime
 # Get current date-time for default filename
 current_date_and_time = datetime.datetime.now()
 current_date_and_time_string = str(current_date_and_time)
-
+MODEL_PATH = "yolo-coco"
+print(WEIGHT_PATH)
+print(CONFIG_PATH)
+print(USE_GPU)
+print(MIN_DISTANCE)
+print(NMS_THRESH)
+print(MIN_CONF)
 
 
 ap = argparse.ArgumentParser()
@@ -28,11 +42,11 @@ args = vars(ap.parse_args())
 
 
 # load the COCO class labels our YOLO model was trained on
-labelsPath = os.path.sep.join([config.MODEL_PATH, "coco.names"])
+labelsPath = os.path.sep.join([MODEL_PATH, "coco.names"])
 LABELS = open(labelsPath).read().strip().split("\n")
 # derive the paths to the YOLO weights and model configuration
-weightsPath = os.path.sep.join([config.MODEL_PATH, WEIGHT_PATH])
-configPath = os.path.sep.join([config.MODEL_PATH, CONFIG_PATH])
+weightsPath = os.path.sep.join([MODEL_PATH, WEIGHT_PATH])
+configPath = os.path.sep.join([MODEL_PATH, CONFIG_PATH])
 
 
 
@@ -40,7 +54,7 @@ configPath = os.path.sep.join([config.MODEL_PATH, CONFIG_PATH])
 # load our YOLO object detector trained on COCO dataset (80 classes
 net = cv2.dnn.readNetFromDarknet(configPath, weightsPath)
 # check if we are going to use GPU
-if config.USE_GPU:
+if USE_GPU:
 	# set CUDA as the preferable backend and target
 	print("[INFO] setting preferable backend and target to CUDA...")
 	net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
@@ -92,7 +106,7 @@ while True:
 				# check to see if the distance between any two
 				# centroid pairs is less than the configured number
 				# of pixels
-				if D[i, j] < config.MIN_DISTANCE:
+				if D[i, j] < MIN_DISTANCE:
 					# update our violation set with the indexes of
 					# the centroid pairs
 					violate.add(i)

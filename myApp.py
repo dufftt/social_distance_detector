@@ -18,7 +18,7 @@ file_path= os.getcwd()
 
 
 root=Tk()
-root.geometry('500x570')
+root.geometry('450x570')
 frame = Frame(root, relief=RIDGE, borderwidth=2)
 frame.pack(fill=BOTH,expand=1)
 root.title('Social Distance Detector')
@@ -33,7 +33,7 @@ image = ImageTk.PhotoImage(image)
 test = Label(frame, image = image, bg="#ffb8e1")
 test.pack()
 
-
+L=[0.3,0.3,50,False,'yolov3-tiny.config','yolov3-tiny.weights']
 
 
 
@@ -47,6 +47,7 @@ def Contri():
 
 def anotherWin():
    tkinter.messagebox.showinfo("About",'Social Distance Detector version v1.0\n Made Using\n-OpenCV\n-Numpy\n-Tkinter\n In Python 3')
+   print(WEIGHT_PATH,CONFIG_PATH,MIN_DISTANCE,MIN_CONF,NMS_THRESH,USE_GPU)
                                     
    
 
@@ -54,7 +55,7 @@ def confo():
    #Enter configuration file here
    set_conf = Toplevel()
    set_conf.title('Configuration settings')
-   set_conf.geometry('500x570')
+   set_conf.geometry('450x570')
 
    def callback(selection):
     print(selection)
@@ -144,14 +145,24 @@ def confo():
    t.place(x=240,y=240)
   
    def but_click():
-      print(threshold.get())
-      #set_conf.destroy()
+      global L
+      L = [threshold.get(),con.get(),dist.get(),gpu.get(),config.get(),weight.get()]
+      print(L)
+      root.update()
+      set_conf.destroy()
+      return L
 
 
    button1 = Button(set_conf, text='Save', command=but_click)
    button1.pack()
    button1.place(x=240,y=450)
 
+WEIGHT_PATH=L[5]
+CONFIG_PATH=L[4]
+MIN_DISTANCE=L[2]
+MIN_CONF=L[1]
+NMS_THRESH=L[0]
+USE_GPU=L[3]
 menu = Menu(root)
 root.config(menu=menu)
 
@@ -224,20 +235,20 @@ def webdetrec():
 
 
    
-but1=Button(frame,padx=5,pady=5,width=39,bg='white',fg='black',relief=GROOVE,command=web,text='Open Cam',font=('helvetica 15 bold'))
+but1=Button(frame,padx=0,pady=5,width=39,bg='white',fg='black',relief=GROOVE,command=web,text='Open Cam',font=('helvetica 15 bold'))
 but1.place(x=5,y=104)
 
-but2=Button(frame,padx=5,pady=5,width=39,bg='white',fg='black',relief=GROOVE,command=webrec,text='Open Cam & Record',font=('helvetica 15 bold'))
+but2=Button(frame,padx=0,pady=5,width=39,bg='white',fg='black',relief=GROOVE,command=webrec,text='Open Cam & Record',font=('helvetica 15 bold'))
 but2.place(x=5,y=176)
 
-but3=Button(frame,padx=5,pady=5,width=39,bg='white',fg='black',relief=GROOVE,command=webdet,text='Open Cam & Detect',font=('helvetica 15 bold'))
+but3=Button(frame,padx=0,pady=5,width=39,bg='white',fg='black',relief=GROOVE,command=webdet,text='Open Cam & Detect',font=('helvetica 15 bold'))
 but3.place(x=5,y=250)
 
 
-but4=Button(frame,padx=5,pady=5,width=39,bg='white',fg='black',relief=GROOVE,text='Select File to Detect',command=webdetrec,font=('helvetica 15 bold'))
+but4=Button(frame,padx=0,pady=5,width=39,bg='white',fg='black',relief=GROOVE,text='Select File to Detect',command=webdetrec,font=('helvetica 15 bold'))
 but4.place(x=5,y=322)
 
-but5=Button(frame,padx=5,pady=5,width=5,bg='white',fg='black',relief=GROOVE,text='EXIT',command=exitt,font=('helvetica 15 bold'))
+but5=Button(frame,padx=0,pady=5,width=5,bg='white',fg='black',relief=GROOVE,text='EXIT',command=exitt,font=('helvetica 15 bold'))
 but5.place(x=210,y=478)
 
 
