@@ -16,7 +16,6 @@ current_date_and_time_string = str(current_date_and_time)
 file_path= os.getcwd()
 
 
-
 root=Tk()
 root.geometry('450x570')
 frame = Frame(root, relief=RIDGE, borderwidth=2)
@@ -33,7 +32,8 @@ image = ImageTk.PhotoImage(image)
 test = Label(frame, image = image, bg="#ffb8e1")
 test.pack()
 
-L=[0.3,0.3,50,False,'yolov3-tiny.config','yolov3-tiny.weights']
+
+L = [0.3,0.3,50,False,'yolov3-tiny.config','yolov3-tiny.weights']
 
 
 
@@ -47,8 +47,8 @@ def Contri():
 
 def anotherWin():
    tkinter.messagebox.showinfo("About",'Social Distance Detector version v1.0\n Made Using\n-OpenCV\n-Numpy\n-Tkinter\n In Python 3')
-   print(WEIGHT_PATH,CONFIG_PATH,MIN_DISTANCE,MIN_CONF,NMS_THRESH,USE_GPU)
-                                    
+   #print(WEIGHT_PATH,CONFIG_PATH,MIN_DISTANCE,MIN_CONF,NMS_THRESH,USE_GPU)
+   print(L)                                 
    
 
 def confo():
@@ -148,8 +148,9 @@ def confo():
       global L
       L = [threshold.get(),con.get(),dist.get(),gpu.get(),config.get(),weight.get()]
       print(L)
-      root.update()
+      set_conf.update()
       set_conf.destroy()
+      root.update()
       return L
 
 
@@ -188,7 +189,7 @@ def exitt():
    exit()
 
 def open_app():
-    filename= filedialog.askopenfilename(parent=root,initialdir="/",title="Select File",filetypes=[
+    filename= filedialog.askopenfilename(parent=root,initialdir=os.getcwd(),title="Select File",filetypes=[
                     ("all video format", ".mp4"),
                     ("all video format", ".flv"),
                     ("all video format", ".avi"),
