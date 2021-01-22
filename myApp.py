@@ -8,7 +8,13 @@ import os
 from tkinter import filedialog
 from PIL import Image,ImageTk,ImageOps
 from tkinter import ttk 
+from test import detector,detect_people
 
+
+
+
+
+#Prepare file Path Name
 current_date_and_time = datetime.datetime.now()
 
 current_date_and_time_string = str(current_date_and_time)
@@ -33,7 +39,7 @@ test = Label(frame, image = image, bg="#ffb8e1")
 test.pack()
 
 
-L = [0.3,0.3,50,False,'yolov3-tiny.config','yolov3-tiny.weights']
+L = [0.3,0.3,50,False,'yolov3-tiny.cfg','yolov3-tiny.weights']
 
 
 
@@ -47,7 +53,7 @@ def Contri():
 
 def anotherWin():
    tkinter.messagebox.showinfo("About",'Social Distance Detector version v1.0\n Made Using\n-OpenCV\n-Numpy\n-Tkinter\n In Python 3')
-   #print(WEIGHT_PATH,CONFIG_PATH,MIN_DISTANCE,MIN_CONF,NMS_THRESH,USE_GPU)
+   # print(WEIGHT_PATH=L[5],CONFIG_PATH=L[4],MIN_DISTANCE=L[],MIN_CONF=L[],NMS_THRESH=L[],USE_GPU=L[3])
    print(L)                                 
    
 
@@ -158,12 +164,7 @@ def confo():
    button1.pack()
    button1.place(x=240,y=450)
 
-WEIGHT_PATH=L[5]
-CONFIG_PATH=L[4]
-MIN_DISTANCE=L[2]
-MIN_CONF=L[1]
-NMS_THRESH=L[0]
-USE_GPU=L[3]
+
 menu = Menu(root)
 root.config(menu=menu)
 
@@ -232,7 +233,8 @@ def webdet():
 def webdetrec():
     file_name=open_app()
     root.update()
-    os.system("python social_distance_detector.py -i " + str(file_name))
+    detector(file_name,L)
+   #  os.system("python social_distance_detector.py -i " + str(file_name))
 
 
    

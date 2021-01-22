@@ -1,11 +1,20 @@
 # import the necessary packages
 # from social_distancing_config import NMS_THRESH
 # from social_distancing_config import MIN_CONF
-from myApp import NMS_THRESH
-from myApp import MIN_CONF
+from social_distancing_config import L
 
 import numpy as np
 import cv2
+
+
+WEIGHT_PATH=L[5]
+CONFIG_PATH=L[4]
+MIN_DISTANCE=L[2]
+MIN_CONF=L[1]
+NMS_THRESH=L[0]
+USE_GPU=L[3]
+
+
 
 def detect_people(frame, net, ln, personIdx=0):
 	# grab the dimensions of the frame and  initialize the list of

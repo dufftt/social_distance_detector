@@ -2,12 +2,8 @@
 # from social_distancing_config import WEIGHT_PATH
 # from social_distancing_config import CONFIG_PATH
 # import social_distancing_config as config
-from myApp import WEIGHT_PATH
-from myApp import CONFIG_PATH
-from myApp import USE_GPU
-from myApp import MIN_DISTANCE
-from myApp import NMS_THRESH
-from myApp import MIN_CONF
+from social_distancing_config import L
+
 
 from detection import detect_people
 from scipy.spatial import distance as dist
@@ -17,6 +13,20 @@ import imutils
 import cv2
 import os
 import datetime
+
+
+
+#Get Variables
+WEIGHT_PATH=L[5]
+CONFIG_PATH=L[4]
+MIN_DISTANCE=L[2]
+MIN_CONF=L[1]
+NMS_THRESH=L[0]
+USE_GPU=L[3]
+
+
+
+
 
 
 # Get current date-time for default filename
