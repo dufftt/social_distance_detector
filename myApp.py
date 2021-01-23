@@ -233,8 +233,8 @@ def webdet():
 def webdetrec():
     file_name=open_app()
     root.update()
-    detector(file_name,L)
-   #  os.system("python social_distance_detector.py -i " + str(file_name))
+   #  detector(file_name,L)
+   os.system("python social_distance_detector.py -i " + str(file_name))
 
 
    
