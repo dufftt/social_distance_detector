@@ -18,6 +18,14 @@ $ mkvirtualenv detector
 $ workon detector
 ```
 
+For Window Users
+
+```
+python3 -m venv detector
+
+detector\Scripts\activate.bat
+```
+
 Step 3) Install Requirements
 
 ```
