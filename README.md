@@ -7,7 +7,13 @@ Opencv,numpy,tkinter,darknet-yolo
 
 ## Installation Guide
 
-Step 1) Go to source directory
+Step 1) Download and go to source directory
+
+
+``` 
+$ git clone https://github.com/dufftt/social_distance_detector.git
+$ cd social_distance_detector
+```
 
 
 
