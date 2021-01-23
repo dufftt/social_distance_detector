@@ -8,8 +8,8 @@ import os
 from tkinter import filedialog
 from PIL import Image,ImageTk,ImageOps
 from tkinter import ttk 
-from test import detector,detect_people
-
+# from test import detector,detect_people
+# from social_distancing_config import L
 
 
 
@@ -27,6 +27,8 @@ root.geometry('450x570')
 frame = Frame(root, relief=RIDGE, borderwidth=2)
 frame.pack(fill=BOTH,expand=1)
 root.title('Social Distance Detector')
+# root.iconbitmap(r"/demo1_icon.ico")
+# root.tk.call('wm', 'iconphoto', root._w, PhotoImage(Image.open("./demo1_icon.ico")))
 frame.config(background='light blue')
 # label = Label(frame, text="Detector",bg='light blue',font=('Times 35 bold'))
 # label.pack(side=TOP)
@@ -39,9 +41,21 @@ test = Label(frame, image = image, bg="#ffb8e1")
 test.pack()
 
 
-L = [0.3,0.3,50,False,'yolov3-tiny.cfg','yolov3-tiny.weights']
+# L = [0.3,0.3,50,False,'yolov3-tiny.cfg','yolov3-tiny.weights']
 
 
+
+
+
+def save_info(threshold,con,dist,gpu,config,weight):
+    file = open("config.py","w")
+    file.writelines("MIN_CONF = "+ str(con)+"\n")
+    file.writelines("NMS_THRESH = "+ str(threshold)+"\n")
+    file.writelines("USE_GPU = "+ str(gpu)+"\n")
+    file.writelines("MIN_DISTANCE = "+ str(dist)+"\n")
+    file.writelines('WEIGHT_PATH = '+ '"'+str(weight)+'"'+"\n")
+    file.writelines("CONFIG_PATH = "+'"'+ str(config)+'"')
+    file.close()
 
 
 def hel():
@@ -53,8 +67,8 @@ def Contri():
 
 def anotherWin():
    tkinter.messagebox.showinfo("About",'Social Distance Detector version v1.0\n Made Using\n-OpenCV\n-Numpy\n-Tkinter\n In Python 3')
-   # print(WEIGHT_PATH=L[5],CONFIG_PATH=L[4],MIN_DISTANCE=L[],MIN_CONF=L[],NMS_THRESH=L[],USE_GPU=L[3])
-   print(L)                                 
+   
+                                  
    
 
 def confo():
@@ -89,9 +103,9 @@ def confo():
    config_label.place(x=5,y=120)
 
    config = StringVar(set_conf)
-   config.set("yolov3-tiny.config") # default value
+   config.set("yolov3-tiny.cfg") # default value
 
-   c = OptionMenu(set_conf, config, "yolov3-tiny.config", "yolov3.config",command=callback)
+   c = OptionMenu(set_conf, config, "yolov3-tiny.cfg", "yolov3.cfg",command=callback)
    c.pack()
    c.place(x=240,y=120)
    
@@ -151,13 +165,13 @@ def confo():
    t.place(x=240,y=240)
   
    def but_click():
-      global L
-      L = [threshold.get(),con.get(),dist.get(),gpu.get(),config.get(),weight.get()]
-      print(L)
+      
+     
       set_conf.update()
       set_conf.destroy()
       root.update()
-      return L
+      save_info(threshold=threshold.get(),con=con.get(),dist=dist.get(),gpu=gpu.get(),config=config.get(),weight=weight.get())
+    
 
 
    button1 = Button(set_conf, text='Save', command=but_click)
@@ -233,8 +247,8 @@ def webdet():
 def webdetrec():
     file_name=open_app()
     root.update()
-   #  detector(file_name,L)
-   os.system("python social_distance_detector.py -i " + str(file_name))
+    # detector(file_name,L)
+    os.system("python social_distance_detector.py -i " + str(file_name))
 
 
    

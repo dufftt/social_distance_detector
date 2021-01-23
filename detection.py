@@ -1,18 +1,18 @@
 # import the necessary packages
-# from social_distancing_config import NMS_THRESH
-# from social_distancing_config import MIN_CONF
-from social_distancing_config import L
+from config import NMS_THRESH
+from config import MIN_CONF
+# from social_distancing_config import L
 
 import numpy as np
 import cv2
 
 
-WEIGHT_PATH=L[5]
-CONFIG_PATH=L[4]
-MIN_DISTANCE=L[2]
-MIN_CONF=L[1]
-NMS_THRESH=L[0]
-USE_GPU=L[3]
+# WEIGHT_PATH=L[5]
+# CONFIG_PATH=L[4]
+# MIN_DISTANCE=L[2]
+# MIN_CONF=L[1]
+# NMS_THRESH=L[0]
+# USE_GPU=L[3]
 
 
 
