@@ -31,11 +31,12 @@ frame = Frame(root, relief=RIDGE, borderwidth=2)
 frame.pack(fill=BOTH,expand=1)
 root.title('Social Distance Detector')
 root.resizable(False,False)
-# root.iconbitmap(r"/demo1_icon.ico")
+# root.iconbitmap(file_path + arroww + "demo1_icon.ico")
+# img = PhotoImage(file=file_path + arroww + "demo1_icon.ico")
+# root.tk.call('wm', 'iconphoto', root._w, img)
+
 # root.tk.call('wm', 'iconphoto', root._w, PhotoImage(Image.open("./demo1_icon.ico")))
 frame.config(background='light blue')
-# label = Label(frame, text="Detector",bg='light blue',font=('Times 35 bold'))
-# label.pack(side=TOP)
 
 
 image = Image.open(file_path + arroww + "demo1.jpg")
