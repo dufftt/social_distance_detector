@@ -5,6 +5,9 @@ This is a social distance measuring application which measure whether people are
 Technologies used:
 Opencv,numpy,tkinter,darknet-yolo
 
+## Prerequistive
+ You should have python installed.
+
 ## Installation Guide
 
 Step 1) Download and go to source directory
