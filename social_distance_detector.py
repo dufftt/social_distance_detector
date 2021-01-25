@@ -21,7 +21,7 @@ import datetime
 
 
 # Get current date-time for default filename
-current_date_and_time = datetime.datetime.now()
+current_date_and_time = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
 current_date_and_time_string = str(current_date_and_time)
 MODEL_PATH = "yolo-coco"
 

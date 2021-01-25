@@ -19,7 +19,7 @@ else:
    arroww = "\\"
 
 #Prepare file Path Name
-current_date_and_time = datetime.datetime.now()
+current_date_and_time = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
 
 current_date_and_time_string = str(current_date_and_time)
 
@@ -270,7 +270,7 @@ def webdetrec():
     file_name=open_app()
     root.update()
     # detector(file_name,L)
-    os.system('python social_distance_detector.py -i ' + str(file_name) + ' -o ' +'\"' + current_date_and_time_string + '.avi'+'\"')
+    os.system('python social_distance_detector.py -i ' + str(file_name) + ' -o ' +'\"' + current_date_and_time_string + '.mp4'+'\"')
    #  print('python social_distance_detector.py -i ' + str(file_name) + ' -o ' +'\"' + current_date_and_time_string + '.avi'+'\"')
 
 
