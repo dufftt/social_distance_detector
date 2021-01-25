@@ -4,7 +4,6 @@ from config import CONFIG_PATH
 from config import USE_GPU
 from config import MIN_DISTANCE
 # import social_distancing_config as config
-# from social_distancing_config import L
 
 
 
@@ -19,29 +18,13 @@ import datetime
 
 
 
-# #Get Variables
-# WEIGHT_PATH=L[5]
-# CONFIG_PATH=L[4]
-# MIN_DISTANCE=L[2]
-# MIN_CONF=L[1]
-# NMS_THRESH=L[0]
-# USE_GPU=L[3]
-
-
-
-
 
 
 # Get current date-time for default filename
 current_date_and_time = datetime.datetime.now()
 current_date_and_time_string = str(current_date_and_time)
 MODEL_PATH = "yolo-coco"
-# print(WEIGHT_PATH)
-# print(CONFIG_PATH)
-# print(USE_GPU)
-# print(MIN_DISTANCE)
-# print(NMS_THRESH)
-# print(MIN_CONF)
+
 
 
 ap = argparse.ArgumentParser()

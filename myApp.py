@@ -8,11 +8,14 @@ import os
 from tkinter import filedialog
 from PIL import Image,ImageTk,ImageOps
 from tkinter import ttk 
+import platform
 # from test import detector,detect_people
 # from social_distancing_config import L
 
-
-
+if platform.system() == "Linux":
+   arroww = "/"
+else:
+   arroww = "\\"
 
 #Prepare file Path Name
 current_date_and_time = datetime.datetime.now()
@@ -35,7 +38,7 @@ frame.config(background='light blue')
 # label.pack(side=TOP)
 
 
-image = Image.open(file_path + "/demo1.jpg")
+image = Image.open(file_path + arroww + "demo1.jpg")
 image = ImageOps.fit(image, (500, 570))
 image = ImageTk.PhotoImage(image)
 test = Label(frame, image = image, bg="#ffb8e1")
