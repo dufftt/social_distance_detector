@@ -9,6 +9,7 @@ from tkinter import filedialog
 from PIL import Image,ImageTk,ImageOps
 from tkinter import ttk 
 import platform
+import webbrowser
 # from test import detector,detect_people
 # from social_distancing_config import L
 
@@ -31,12 +32,9 @@ frame = Frame(root, relief=RIDGE, borderwidth=2)
 frame.pack(fill=BOTH,expand=1)
 root.title('Social Distance Detector')
 root.resizable(False,False)
-# root.iconbitmap(file_path + arroww + "demo1_icon.ico")
-# img = PhotoImage(file=file_path + arroww + "demo1_icon.ico")
-# root.tk.call('wm', 'iconphoto', root._w, img)
-
-# root.tk.call('wm', 'iconphoto', root._w, PhotoImage(Image.open("./demo1_icon.ico")))
+root.iconbitmap(file_path + arroww + "demo1_icon.ico")
 frame.config(background='light blue')
+
 
 
 image = Image.open(file_path + arroww + "demo1.jpg")
@@ -67,8 +65,26 @@ def hel():
    help(cv2)
 
 def Contri():
-   tkinter.messagebox.showinfo("Contributor","Sourav Sharma")
+   # box=tkinter.messagebox.showinfo("Developer","Sourav Sharma")
+   set_contri = Toplevel()
+   set_contri.title('Configuration settings')
+   set_contri.geometry('140x70')
+   set_contri.resizable(False,False)
+   set_contri.iconbitmap(file_path + arroww + "demo1_icon.ico")
+   def callback(url):
+    webbrowser.open_new(url)
 
+   myself = Label(set_contri, text="Sourav Sharma", fg="blue", cursor="hand2")
+   myself.config(anchor=CENTER)
+   myself.pack()
+   myself.bind("<Button-1>", lambda e: callback("https://www.linkedin.com/in/sourav-sharma-20186268/m"))
+   
+
+
+   # canvas = Canvas(set_contri, width = 20, height = 20)
+   # canvas.pack()
+   # img = ImageTk.PhotoImage(Image.open("sourav.png"))
+   # canvas.create_image(1, 1, anchor=NW, image=img)
 
 def anotherWin():
    tkinter.messagebox.showinfo("About",'Social Distance Detector version v1.0\n Made Using\n-OpenCV\n-Numpy\n-Tkinter\n In Python 3')
@@ -201,7 +217,7 @@ subm2.add_command(label="Open CV Docs",command=hel)
 subm3 = Menu(menu,tearoff=False)
 menu.add_cascade(label="About",menu=subm3)
 subm3.add_command(label="Social Distance Detection",command=anotherWin)
-subm3.add_command(label="Contributors",command=Contri)
+subm3.add_command(label="Developer",command=Contri)
 
 
 
@@ -215,6 +231,7 @@ def open_app():
                     ("all video format", ".avi"),
                     ("All files","*.*")
                 ])
+   #  print(filename)
     return(filename)
     
   
@@ -253,7 +270,8 @@ def webdetrec():
     file_name=open_app()
     root.update()
     # detector(file_name,L)
-    os.system("python social_distance_detector.py -i " + str(file_name))
+    os.system('python social_distance_detector.py -i ' + str(file_name) + ' -o ' +'\"' + current_date_and_time_string + '.avi'+'\"')
+   #  print('python social_distance_detector.py -i ' + str(file_name) + ' -o ' +'\"' + current_date_and_time_string + '.avi'+'\"')
 
 
    
