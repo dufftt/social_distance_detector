@@ -6,7 +6,7 @@ Technologies used:
 Opencv,numpy,tkinter,darknet-yolo
 
 ## Prerequistive
- You should have python installed.
+ You should have python-X64 installed.
 
 ## Installation Guide
 
@@ -30,7 +30,7 @@ $ workon detector
 For Window Users
 
 ```
-python3 -m venv detector
+py -m venv detector
 
 detector\Scripts\activate.bat
 ```
@@ -48,6 +48,13 @@ Step 4) Start Application
 $ python myApp.py
 ```
 
+
+For Window Users
+
+
+```
+py myApp.py
+```
 
 
 
