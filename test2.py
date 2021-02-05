@@ -27,7 +27,18 @@ class Detector():
         image = tk.ImageTk.PhotoImage(image)
         test = tk.Label(frame, image = image, bg="#ffb8e1")
         test.pack()
- 
+        menu = tk.Menu(self.master)
+        self.master.config(menu=menu)
+        create_menu(menu,labels1='Tools',labels2='set configuration',menu_command=confo)
+        create_menu(menu,labels1='Help',labels2='open cv docs',menu_command=hel)
+        create_menu(menu,labels1='About',labels2='Social Distance Detector',menu_command=anotherWin)
+        button(frame=frame,width=39,button_command=web,text="open cam",x=5,y=104)
+        button(frame=frame,width=39,button_command=webrec,text="Open Cam & Record",x=5,y=176)
+        button(frame=frame,width=39,button_command=webdet,text="Open Cam & Detect",x=5,y=250)
+        button(frame=frame,width=39,button_command=webdetrec,text="Select File to Detect",x=5,y=322)
+        button(frame=frame,width=39,button_command=exit,text="EXIT",x=210,y=478)
+
+
     def check_system(self):
         if platform.system() == "Linux":
             arroww = "/"
@@ -97,7 +108,7 @@ class Detector():
         but1.place(x=x,y=y)
 
 
-    def menu(self,menu,labels1,labels2,menu_command):
+    def create_menu(self,menu,labels1,labels2,menu_command):
         subm = tk.Menu(menu=menu,tearoff=False)
         menu.add_cascade(label=labels1,menu=subm)
         subm.add_command(label=labels2,command=menu_command)
@@ -157,26 +168,6 @@ class configuration():
         w = tk.OptionMenu(self.master, value,options,command=entry_command(value))
         w.pack()
         w.place(x=x2,y=y2)
-
-
-        # def save_info(self,threshold,con,dist,gpu,config,weight):
-        #     tk.file = open("config.py","w")
-        #     tk.file.writelines("MIN_CONF = "+ str(con)+"\n")
-        #     tk.file.writelines("NMS_THRESH = "+ str(threshold)+"\n")
-        #     tk.file.writelines("USE_GPU = "+ str(gpu)+"\n")
-        #     tk.file.writelines("MIN_DISTANCE = "+ str(dist)+"\n")
-        #     tk.file.writelines('WEIGHT_PATH = '+ '"'+str(weight)+'"'+"\n")
-        #     tk.file.writelines("CONFIG_PATH = "+'"'+ str(config)+'"')
-        #     tk.file.close()
-
-
-
-
-
-
-
-
-
 
 
 
