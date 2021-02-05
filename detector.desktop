@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=detector
+Exec=/home/sourav/Downloads/social_distance_detector/myApp.py
+Terminal=false
+Icon=/home/sourav/Downloads/social_distance_detector/demo1.png
+tartupWMClass=tk

@@ -19,9 +19,9 @@ else:
    arroww = "\\"
 
 #Prepare file Path Name
-current_date_and_time = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
 
-current_date_and_time_string = str(current_date_and_time)
+
+current_date_and_time_string = str(datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S"))
 
 file_path= os.getcwd()
 
@@ -32,7 +32,7 @@ frame = Frame(root, relief=RIDGE, borderwidth=2)
 frame.pack(fill=BOTH,expand=1)
 root.title('Social Distance Detector')
 root.resizable(False,False)
-root.iconbitmap(file_path + arroww + "demo1_icon.ico")
+# root.iconbitmap(file_path + arroww + "demo1_icon.ico")
 frame.config(background='light blue')
 
 
@@ -80,11 +80,6 @@ def Contri():
    myself.bind("<Button-1>", lambda e: callback("https://www.linkedin.com/in/sourav-sharma-20186268/m"))
    
 
-
-   # canvas = Canvas(set_contri, width = 20, height = 20)
-   # canvas.pack()
-   # img = ImageTk.PhotoImage(Image.open("sourav.png"))
-   # canvas.create_image(1, 1, anchor=NW, image=img)
 
 def anotherWin():
    tkinter.messagebox.showinfo("About",'Social Distance Detector version v1.0\n Made Using\n-OpenCV\n-Numpy\n-Tkinter\n In Python 3')
@@ -269,7 +264,6 @@ def webdet():
 def webdetrec():
     file_name=open_app()
     root.update()
-    # detector(file_name,L)
     os.system('python social_distance_detector.py -i ' + str(file_name) + ' -o ' +'\"' + current_date_and_time_string + '.mp4'+'\"')
    #  print('python social_distance_detector.py -i ' + str(file_name) + ' -o ' +'\"' + current_date_and_time_string + '.avi'+'\"')
 
