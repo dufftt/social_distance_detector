@@ -32,7 +32,7 @@ For Window Users
 .\detector\Scripts\activate.bat
 ```
 
-Step 3) Install Requirements
+Step 3)(Optional) Install Requirements
 
 ```
 $ pip install -r requirements.txt
