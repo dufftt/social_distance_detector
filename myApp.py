@@ -264,7 +264,7 @@ def webdet():
 def webdetrec():
     file_name=open_app()
     root.update()
-    os.system('python social_distance_detector.py -i ' + str(file_name) + ' -o ' +'\"' + current_date_and_time_string + '.mp4'+'\"')
+    os.system('python social_distance_detector.py -i ' + str(file_name) + ' -o ' +'\"' + current_date_and_time_string + '.avi'+'\"')
    #  print('python social_distance_detector.py -i ' + str(file_name) + ' -o ' +'\"' + current_date_and_time_string + '.avi'+'\"')
 
 
