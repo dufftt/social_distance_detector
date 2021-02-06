@@ -23,16 +23,13 @@ $ cd social_distance_detector
 Step 2) create and activate virtual environment
 
 ```
-$ mkvirtualenv detector
-$ workon detector
+$ source source detector/bin/activate
 ```
 
 For Window Users
 
 ```
-py -m venv detector
-
-detector\Scripts\activate.bat
+.\detector\Scripts\activate.bat
 ```
 
 Step 3) Install Requirements
