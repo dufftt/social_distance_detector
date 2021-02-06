@@ -23,7 +23,7 @@ $ cd social_distance_detector
 Step 2) create and activate virtual environment
 
 ```
-$ source source detector/bin/activate
+$ source detector/bin/activate
 ```
 
 For Window Users
