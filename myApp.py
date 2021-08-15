@@ -11,7 +11,7 @@ from tkinter import ttk
 import platform
 # from test import detector,detect_people
 # from social_distancing_config import L
-
+#Trying out github.dev
 if platform.system() == "Linux":
    arroww = "/"
 else:
